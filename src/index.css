@@ -6,18 +6,19 @@
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
 }
 
 #root,
 html {
-  background-color: lightgray;
+  background-color: #002f6c;
 }
 
-.scale-down-tl {
-  animation: scale-down-tl 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+.top-left {
+  animation: top-left 400ms cubic-bezier(0.2, 0.5, 0.5, 0.9) both;
 }
 
-@keyframes scale-down-tl {
+@keyframes top-left {
   0% {
     transform: scale(1);
     transform-origin: 0 0;
@@ -26,4 +27,12 @@ html {
     transform: scale(0.5);
     transform-origin: 0 0;
   }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
 }
