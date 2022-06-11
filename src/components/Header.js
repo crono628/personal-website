@@ -7,6 +7,7 @@ const Header = ({ onLoad }) => {
   const [timer, setTimer] = useState(false);
   const [img, setImg] = useState([]);
   const loaded = useContext(LoadedContext);
+
   useEffect(() => {
     const img0 = require('../img/headshot.png');
     setImg(img.concat(img0));
@@ -17,7 +18,6 @@ const Header = ({ onLoad }) => {
         }, 2000);
       }
     };
-    console.log('render');
     return unsub();
   }, [loaded]);
 

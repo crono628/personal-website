@@ -1,27 +1,35 @@
 import { createContext } from 'react';
 
 const initialState = {
+  about: true,
+  projects: true,
+  resume: true,
+  contact: true,
+};
+
+const falseState = {
   about: false,
   projects: false,
   resume: false,
-  contacts: false,
+  contact: false,
 };
 
 function reducer(state, action) {
+  // const areTrue = Object.values(state);
+  // console.log(areTrue);
   switch (action.type) {
     case 'about':
-      return { ...state, about: true };
+      return { ...falseState, about: true };
     case 'projects':
-      return { ...state, projects: true };
+      return { ...falseState, projects: true };
     case 'resume':
-      return { ...state, resume: true };
+      return { ...falseState, resume: true };
     case 'contact':
-      return { ...state, contacts: true };
+      return { ...falseState, contact: true };
     case 'reset':
-      return { initialState };
-
+      return { ...initialState };
     default:
-      throw new Error('reducer error');
+      throw new Error(`Unknown action type: ${action.type}`);
   }
 }
 
