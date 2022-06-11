@@ -5,9 +5,7 @@ import MainMenu from './subcomponents/MainMenu';
 const Body = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
+  useEffect(() => {}, [state]);
 
   const dispatcher = {
     about: () => dispatch({ type: 'about' }),

@@ -15,17 +15,16 @@ const falseState = {
 };
 
 function reducer(state, action) {
-  // const areTrue = Object.values(state);
-  // console.log(areTrue);
+  const allTrue = Object.values(state).every((choice) => choice === true);
   switch (action.type) {
     case 'about':
-      return { ...falseState, about: true };
+      return allTrue ? { ...falseState, about: true } : { ...initialState };
     case 'projects':
-      return { ...falseState, projects: true };
+      return allTrue ? { ...falseState, projects: true } : { ...initialState };
     case 'resume':
-      return { ...falseState, resume: true };
+      return allTrue ? { ...falseState, resume: true } : { ...initialState };
     case 'contact':
-      return { ...falseState, contact: true };
+      return allTrue ? { ...falseState, contact: true } : { ...initialState };
     case 'reset':
       return { ...initialState };
     default:

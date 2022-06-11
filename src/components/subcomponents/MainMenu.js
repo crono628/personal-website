@@ -35,7 +35,6 @@ const MainMenu = ({ state, dispatcher }) => {
         }, 2000);
       }
     };
-    console.log(dispatcher);
     return unsub();
   }, [loaded]);
 
