@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Avatar, Grow, Slide, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import { LoadedContext } from '../helpers/helpers';
 
-const Header = ({ onLoad, loaded }) => {
+const Header = ({ onLoad }) => {
   const [timer, setTimer] = useState(false);
   const [img, setImg] = useState([]);
+  const loaded = useContext(LoadedContext);
   useEffect(() => {
     const img0 = require('../img/headshot.png');
     setImg(img.concat(img0));
