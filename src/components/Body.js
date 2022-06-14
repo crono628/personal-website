@@ -1,11 +1,12 @@
-import React, { useEffect, useReducer } from 'react';
+import { Box, Fade } from '@mui/material';
+import React, { useReducer } from 'react';
 import { initialState, reducer } from '../helpers/helpers';
+import About from './subcomponents/About';
 import MainMenu from './subcomponents/MainMenu';
 
-const Body = () => {
+const Body = ({}) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  useEffect(() => {}, [state]);
+  const allTrue = Object.values(state).every((choice) => choice === true);
 
   const dispatcher = {
     about: () => dispatch({ type: 'about' }),
@@ -17,6 +18,16 @@ const Body = () => {
   return (
     <>
       <MainMenu state={state} dispatcher={dispatcher} />
+      <Fade in={!allTrue && state.about}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          {/* <About /> */}
+        </Box>
+      </Fade>
     </>
   );
 };

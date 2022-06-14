@@ -33,5 +33,6 @@ function reducer(state, action) {
 }
 
 const LoadedContext = createContext();
+const PaperContext = createContext();
 
-export { initialState, reducer, LoadedContext };
+export { initialState, reducer, LoadedContext, PaperContext };

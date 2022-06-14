@@ -7,10 +7,10 @@ import {
   styled,
   Typography,
 } from '@mui/material';
-import React, { useEffect, useState, useContext } from 'react';
-import { LoadedContext } from '../../helpers/helpers';
+import React, { useEffect, useState, useContext, useRef } from 'react';
+import { LoadedContext, PaperContext } from '../../helpers/helpers';
 
-const cardStyles = { width: '200px', alignSelf: 'center', m: 1 };
+const cardStyles = { width: '200px', m: 1 };
 
 const StyledTypography = styled(Typography)({
   color: '#002f6c',
@@ -20,65 +20,65 @@ const StyledTypography = styled(Typography)({
 const StyledCardContent = styled(CardContent)({
   display: 'flex',
   justifyContent: 'center',
-  alignContent: 'center',
+  alignItems: 'center',
   cursor: 'pointer',
 });
+
 const MainMenu = ({ state, dispatcher }) => {
   const [timer, setTimer] = useState(false);
   const loaded = useContext(LoadedContext);
+  const allTrue = Object.values(state).every((choice) => choice === true);
+  const paperRef = useContext(PaperContext);
 
   useEffect(() => {
     const unsub = () => {
       if (loaded) {
         setTimeout(() => {
           setTimer(true);
-        }, 2000);
+        }, 1900);
       }
     };
+
     return unsub();
   }, [loaded]);
 
+  function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
   return (
-    <Slide in={loaded && timer} direction="left" timeout={500}>
+    <Slide
+      in={loaded && timer}
+      direction="left"
+      timeout={500}
+      container={paperRef.current}
+    >
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          p: 5,
-          mb: 3,
+          alignItems: 'center',
           position: 'relative',
-          bottom: '100px',
+          top: '100px',
         }}
       >
-        <Fade in={state.about}>
-          <Card sx={cardStyles} onClick={() => dispatcher.about()}>
-            <StyledCardContent>
-              <StyledTypography>About</StyledTypography>
-            </StyledCardContent>
-          </Card>
-        </Fade>
-        <Fade in={state.projects}>
-          <Card sx={cardStyles} onClick={() => dispatcher.projects()}>
-            <StyledCardContent>
-              <StyledTypography>Projects</StyledTypography>
-            </StyledCardContent>
-          </Card>
-        </Fade>
-        <Fade in={state.resume}>
-          <Card sx={cardStyles} onClick={() => dispatcher.resume()}>
-            <StyledCardContent>
-              <StyledTypography>Resume</StyledTypography>
-            </StyledCardContent>
-          </Card>
-        </Fade>
-        <Fade in={state.contact}>
-          <Card sx={cardStyles} onClick={() => dispatcher.contact()}>
-            <StyledCardContent>
-              <StyledTypography>Contact</StyledTypography>
-            </StyledCardContent>
-          </Card>
-        </Fade>
+        {Object.keys(dispatcher).map((key, index) => {
+          return (
+            <Fade in={allTrue || state[key]} key={index}>
+              <Card
+                sx={{
+                  ...cardStyles,
+                }}
+                onClick={dispatcher[key]}
+              >
+                <StyledCardContent>
+                  <StyledTypography>{capitalize(key)}</StyledTypography>
+                </StyledCardContent>
+              </Card>
+            </Fade>
+          );
+        })}
       </Box>
     </Slide>
   );

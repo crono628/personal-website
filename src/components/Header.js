@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Avatar, Grow, Slide, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { LoadedContext } from '../helpers/helpers';
@@ -7,6 +7,7 @@ const Header = ({ onLoad }) => {
   const [timer, setTimer] = useState(false);
   const [img, setImg] = useState([]);
   const loaded = useContext(LoadedContext);
+  const boxRef = useRef(null);
 
   useEffect(() => {
     const img0 = require('../img/headshot.png');
@@ -25,11 +26,13 @@ const Header = ({ onLoad }) => {
     <Box
       className={timer && loaded ? 'top-left' : ''}
       sx={{
-        mt: 3,
         p: 4,
         display: 'flex',
         flex: 1,
+        position: 'absolute',
+        overflowX: 'hidden',
       }}
+      ref={boxRef}
     >
       <Grow in={loaded} timeout={1000}>
         <Avatar
@@ -45,11 +48,16 @@ const Header = ({ onLoad }) => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignContent: 'center',
+          overflowX: 'hidden',
         }}
       >
-        <Slide in={loaded} direction="left" timeout={700}>
-          <Typography w={'100vh'} pl={2} fontSize={'2.2rem'}>
+        <Slide
+          in={loaded}
+          direction="right"
+          timeout={700}
+          container={boxRef.current}
+        >
+          <Typography pl={2} fontSize={'2.2rem'}>
             Michael DeSantis
           </Typography>
         </Slide>
