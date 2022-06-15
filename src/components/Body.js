@@ -63,8 +63,7 @@ const Body = ({}) => {
         <Fade in={allFalse} timeout={400}>
           <Box
             sx={{
-              display: 'flex',
-              mt: '80px',
+              display: !allFalse ? 'none' : 'flex',
               // position: 'absolute',
               // top: '100px',
               // left: 0,

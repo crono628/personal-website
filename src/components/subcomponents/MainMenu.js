@@ -63,8 +63,7 @@ const MainMenu = ({ state, dispatcher, setChoice }) => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          position: 'relative',
-          top: '100px',
+          mt: '80px',
         }}
       >
         {Object.keys(dispatcher).map((key, index) => {
