@@ -3,24 +3,9 @@ import { Avatar, Grow, Slide, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { LoadedContext } from '../helpers/helpers';
 
-const Header = ({ onLoad }) => {
-  const [timer, setTimer] = useState(false);
-  const [img, setImg] = useState([]);
+const Header = ({ onLoad, headshot, timer }) => {
   const loaded = useContext(LoadedContext);
   const boxRef = useRef(null);
-
-  useEffect(() => {
-    const img0 = require('../img/headshot.png');
-    setImg(img.concat(img0));
-    const unsub = () => {
-      if (loaded) {
-        setTimeout(() => {
-          setTimer(true);
-        }, 2000);
-      }
-    };
-    return unsub();
-  }, [loaded]);
 
   return (
     <Box
@@ -38,7 +23,7 @@ const Header = ({ onLoad }) => {
         <Avatar
           sx={{ width: '7rem', minHeight: '7rem' }}
           alt="Michael DeSantis"
-          src={img[0]}
+          src={headshot}
           onLoad={onLoad}
           className={loaded ? 'visible' : 'hidden'}
         />

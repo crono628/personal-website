@@ -14,15 +14,16 @@ const FlexBox = styled(Box)({
   flexDirection: 'column',
 });
 
-const Body = ({}) => {
+const Body = ({ resume }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const allFalse = Object.values(state).every((item) => item === false);
   const [choice, setChoice] = useState({
     about: false,
     projects: false,
     resume: false,
     contact: false,
   });
+
+  const allFalse = Object.values(state).every((item) => item === false);
 
   function handleChoice(key) {
     setChoice({ ...choice, [key]: true });
@@ -38,10 +39,15 @@ const Body = ({}) => {
     setChoice(handleX);
     setTimeout(() => {
       dispatcher.allTrue();
-    }, 150);
+    }, 175);
   }
 
-  const cancelStyles = { alignSelf: 'flex-end', cursor: 'pointer' };
+  const cancelStyles = {
+    alignSelf: 'flex-end',
+    cursor: 'pointer',
+    pb: 1,
+    fontSize: '2rem',
+  };
 
   const dispatcher = {
     about: () => dispatch({ type: 'about' }),
@@ -64,7 +70,7 @@ const Body = ({}) => {
           <Box
             sx={{
               display: !allFalse ? 'none' : 'flex',
-              mt: '-50px',
+              mt: '-55px',
               justifyContent: 'center',
             }}
           >
@@ -81,7 +87,7 @@ const Body = ({}) => {
             ) : choice.resume ? (
               <FlexBox>
                 <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
-                <Resume />
+                <Resume resume={resume} />
               </FlexBox>
             ) : choice.contact ? (
               <FlexBox>

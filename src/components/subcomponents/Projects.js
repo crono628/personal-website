@@ -1,5 +1,4 @@
 import { Card, CardContent } from '@mui/material';
-import { Box } from '@mui/system';
 import React, { forwardRef } from 'react';
 
 const Projects = forwardRef((props, ref) => {

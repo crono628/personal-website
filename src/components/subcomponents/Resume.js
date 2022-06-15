@@ -1,12 +1,20 @@
-import { Button, Card, CardContent, Link } from '@mui/material';
+import { Button, Card } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { forwardRef } from 'react';
-// import MichaelDeSantisResumePNG from ''
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 const Resume = forwardRef((props, ref) => {
+  function handleDownload() {
+    const link = document.createElement('a');
+    link.download = 'MichaelDeSantisResume';
+    link.href = props.resume;
+    link.click();
+  }
+
   return (
     <>
       <Button
+        onClick={handleDownload}
         variant="contained"
         size="small"
         sx={{
@@ -16,8 +24,9 @@ const Resume = forwardRef((props, ref) => {
           right: '0',
           marginLeft: 'auto',
           marginRight: 'auto',
-          width: '180px',
+          width: '150px',
         }}
+        startIcon={<FileDownloadIcon />}
       >
         Download
       </Button>
@@ -33,10 +42,7 @@ const Resume = forwardRef((props, ref) => {
         {...props}
         ref={ref}
       >
-        <Box
-          component="img"
-          src={require('../../img/MichaelDeSantisResume.png')}
-        />
+        <Box component="img" src={props.resume} />
       </Card>
     </>
   );

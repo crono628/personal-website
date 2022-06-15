@@ -7,7 +7,7 @@ import {
   styled,
   Typography,
 } from '@mui/material';
-import React, { useEffect, useState, useContext, useRef } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { LoadedContext, PaperContext } from '../../helpers/helpers';
 
 const cardStyles = { width: '200px', m: 1 };
