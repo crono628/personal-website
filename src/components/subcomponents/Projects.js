@@ -2,7 +2,7 @@ import { Card, CardContent } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { forwardRef } from 'react';
 
-const About = forwardRef((props, ref) => {
+const Projects = forwardRef((props, ref) => {
   return (
     <Card
       sx={{
@@ -37,4 +37,4 @@ const About = forwardRef((props, ref) => {
   );
 });
 
-export default About;
+export default Projects;

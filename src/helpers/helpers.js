@@ -25,8 +25,10 @@ function reducer(state, action) {
       return allTrue ? { ...falseState, resume: true } : { ...initialState };
     case 'contact':
       return allTrue ? { ...falseState, contact: true } : { ...initialState };
-    case 'reset':
+    case 'allTrue':
       return { ...initialState };
+    case 'allFalse':
+      return { ...falseState };
     default:
       throw new Error(`Unknown action type: ${action.type}`);
   }

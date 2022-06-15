@@ -24,26 +24,29 @@ const StyledCardContent = styled(CardContent)({
   cursor: 'pointer',
 });
 
-const MainMenu = ({ state, dispatcher }) => {
+const MainMenu = ({ state, dispatcher, setChoice }) => {
   const [timer, setTimer] = useState(false);
   const loaded = useContext(LoadedContext);
-  const allTrue = Object.values(state).every((choice) => choice === true);
   const paperRef = useContext(PaperContext);
 
   useEffect(() => {
-    const unsub = () => {
-      if (loaded) {
-        setTimeout(() => {
-          setTimer(true);
-        }, 1900);
-      }
-    };
-
-    return unsub();
+    if (loaded) {
+      setTimeout(() => {
+        setTimer(true);
+      }, 1900);
+    }
   }, [loaded]);
 
   function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  function handleClick(obj, key) {
+    obj[key]();
+    setChoice(key);
+    setTimeout(() => {
+      dispatcher.allFalse();
+    }, 800);
   }
 
   return (
@@ -64,20 +67,20 @@ const MainMenu = ({ state, dispatcher }) => {
         }}
       >
         {Object.keys(dispatcher).map((key, index) => {
-          return (
-            <Fade in={allTrue || state[key]} key={index}>
-              <Card
-                sx={{
-                  ...cardStyles,
-                }}
-                onClick={dispatcher[key]}
-              >
-                <StyledCardContent>
-                  <StyledTypography>{capitalize(key)}</StyledTypography>
-                </StyledCardContent>
-              </Card>
-            </Fade>
-          );
+          if (index < 4) {
+            return (
+              <Fade in={state[key]} key={key + index}>
+                <Card
+                  sx={cardStyles}
+                  onClick={() => handleClick(dispatcher, key)}
+                >
+                  <StyledCardContent>
+                    <StyledTypography>{capitalize(key)}</StyledTypography>
+                  </StyledCardContent>
+                </Card>
+              </Fade>
+            );
+          }
         })}
       </Box>
     </Slide>

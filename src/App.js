@@ -7,7 +7,6 @@ import { LoadedContext, PaperContext } from './helpers/helpers';
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
-  const [loading, setLoading] = useState(false);
   const paperRef = useRef('');
 
   const handleOnLoad = () => {
@@ -22,12 +21,10 @@ const App = () => {
         ref={paperRef}
         sx={{
           backgroundColor: '#01579b',
-          minHeight: '650px',
+          height: '95vh',
           my: 2,
           overflowX: 'hidden',
           width: '100%',
-          // display: 'flex',
-          // flexDirection: 'column',
         }}
       >
         <LoadedContext.Provider value={loaded}>
