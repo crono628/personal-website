@@ -59,40 +59,43 @@ const Body = ({}) => {
         dispatcher={dispatcher}
         setChoice={handleChoice}
       />
-      <Fade in={allFalse} timeout={400}>
-        <Box
-          sx={{
-            display: 'flex',
-            position: 'absolute',
-            top: '100px',
-            left: 0,
-            right: 0,
-            justifyContent: 'center',
-          }}
-        >
-          {choice.about ? (
-            <FlexBox>
-              <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
-              <About />
-            </FlexBox>
-          ) : choice.projects ? (
-            <FlexBox>
-              <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
-              <Projects />
-            </FlexBox>
-          ) : choice.resume ? (
-            <FlexBox>
-              <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
-              <Resume />
-            </FlexBox>
-          ) : choice.contact ? (
-            <FlexBox>
-              <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
-              <Contact />
-            </FlexBox>
-          ) : null}
-        </Box>
-      </Fade>
+      {allFalse && (
+        <Fade in={allFalse} timeout={400}>
+          <Box
+            sx={{
+              display: 'flex',
+              mt: '80px',
+              // position: 'absolute',
+              // top: '100px',
+              // left: 0,
+              // right: 0,
+              justifyContent: 'center',
+            }}
+          >
+            {choice.about ? (
+              <FlexBox>
+                <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
+                <About />
+              </FlexBox>
+            ) : choice.projects ? (
+              <FlexBox>
+                <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
+                <Projects />
+              </FlexBox>
+            ) : choice.resume ? (
+              <FlexBox>
+                <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
+                <Resume />
+              </FlexBox>
+            ) : choice.contact ? (
+              <FlexBox>
+                <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
+                <Contact />
+              </FlexBox>
+            ) : null}
+          </Box>
+        </Fade>
+      )}
     </>
   );
 };

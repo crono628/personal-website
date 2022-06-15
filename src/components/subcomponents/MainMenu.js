@@ -26,6 +26,7 @@ const StyledCardContent = styled(CardContent)({
 
 const MainMenu = ({ state, dispatcher, setChoice }) => {
   const [timer, setTimer] = useState(false);
+  const allFalse = Object.values(state).every((item) => item === false);
   const loaded = useContext(LoadedContext);
   const paperRef = useContext(PaperContext);
 
@@ -71,7 +72,7 @@ const MainMenu = ({ state, dispatcher, setChoice }) => {
             return (
               <Fade in={state[key]} key={key + index}>
                 <Card
-                  sx={cardStyles}
+                  sx={{ ...cardStyles, display: allFalse ? 'none' : '' }}
                   onClick={() => handleClick(dispatcher, key)}
                 >
                   <StyledCardContent>
