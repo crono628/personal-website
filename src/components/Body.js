@@ -68,6 +68,7 @@ const Body = ({}) => {
               // top: '100px',
               // left: 0,
               // right: 0,
+              mt: '-50px',
               justifyContent: 'center',
             }}
           >
