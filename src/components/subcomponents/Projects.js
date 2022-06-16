@@ -1,39 +1,119 @@
-import { Card, CardContent } from '@mui/material';
-import React, { forwardRef } from 'react';
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Link,
+  Typography,
+} from '@mui/material';
+import React from 'react';
 
-const Projects = forwardRef((props, ref) => {
+const Projects = () => {
+  const fontStyles = { color: '#002f6c', fontSize: '1rem' };
   return (
-    <Card
+    <Box
       sx={{
-        backgroundColor: '#4f83cc',
         width: '75vw',
         maxWidth: '650px',
         display: 'flex',
         flexDirection: 'column',
       }}
-      {...props}
-      ref={ref}
     >
-      <CardContent>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-        reprehenderit nesciunt ut laudantium assumenda modi harum vero laborum
-        ipsum? Expedita corporis ex laborum incidunt architecto, vero maiores
-        unde nemo soluta.
-      </CardContent>
-      <CardContent>
-        Repellat tenetur neque voluptatibus nobis quae ea blanditiis iusto,
-        distinctio, reprehenderit unde ratione quod voluptates quaerat
-        repudiandae aspernatur nihil? Delectus officiis rem molestiae maiores
-        voluptatum illo error nihil odio. Voluptatem?
-      </CardContent>
-      <CardContent>
-        Ducimus, doloribus corrupti culpa tenetur quidem, rerum fuga blanditiis
-        ab reprehenderit provident explicabo aut amet, illo minima dolorum eum!
-        Nemo dolor quaerat fuga quam fugit exercitationem accusamus deleniti,
-        illo autem?
-      </CardContent>
-    </Card>
+      <Card sx={{ m: 2 }}>
+        <CardContent>
+          <Typography sx={fontStyles}>Where's Waldo?</Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            href="https://github.com/crono628/wheres-waldo"
+            size="small"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Repo
+          </Button>
+          <Button
+            href="https://waldo-ce529.web.app/"
+            size="small"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live
+          </Button>
+        </CardActions>
+      </Card>
+      <Card sx={{ m: 2 }}>
+        <CardContent>
+          <Typography sx={fontStyles}>Weather Forecast</Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            href="https://github.com/crono628/new-weather-app"
+            size="small"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Repo
+          </Button>
+          <Button
+            href="https://weather-4b046.web.app/"
+            size="small"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live
+          </Button>
+        </CardActions>
+      </Card>
+      <Card sx={{ m: 2 }}>
+        <CardContent>
+          <Typography sx={fontStyles}>Jenna's List</Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            href="https://github.com/crono628/react-to-do-list"
+            size="small"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Repo
+          </Button>
+          <Button
+            href="https://www.jennaslist.app/#/login"
+            size="small"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live
+          </Button>
+        </CardActions>
+      </Card>
+      <Card sx={{ m: 2 }}>
+        <CardContent>
+          <Typography sx={fontStyles}>Shopping Cart</Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            href="https://github.com/crono628/cart"
+            size="small"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Repo
+          </Button>
+          <Button
+            href="https://crono628.github.io/cart/"
+            size="small"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live
+          </Button>
+        </CardActions>
+      </Card>
+    </Box>
   );
-});
+};
 
 export default Projects;

@@ -12,7 +12,7 @@ const Resume = forwardRef((props, ref) => {
   }
 
   return (
-    <>
+    <Box {...props} ref={ref}>
       <Button
         onClick={handleDownload}
         variant="contained"
@@ -39,12 +39,10 @@ const Resume = forwardRef((props, ref) => {
           flexDirection: 'column',
           p: 1,
         }}
-        {...props}
-        ref={ref}
       >
         <Box component="img" src={props.resume} />
       </Card>
-    </>
+    </Box>
   );
 });
 
