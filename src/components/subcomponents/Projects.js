@@ -12,8 +12,8 @@ import React from 'react';
 const Projects = () => {
   const fontStyles = { color: '#002f6c' };
   const boxStyles = {
-    width: '45vw',
-    maxWidth: '650px',
+    width: '75vw',
+    maxWidth: '450px',
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#4f83cc',
