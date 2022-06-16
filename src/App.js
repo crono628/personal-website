@@ -29,7 +29,7 @@ const App = () => {
   };
 
   return (
-    <Container>
+    <Container maxWidth="md">
       <Paper
         ref={paperRef}
         sx={{

@@ -5,7 +5,17 @@ import { LoadedContext } from '../helpers/helpers';
 
 const Header = ({ onLoad, headshot, timer }) => {
   const loaded = useContext(LoadedContext);
+  const [dev, setDev] = useState(false);
   const boxRef = useRef(null);
+  const nameRef = useRef(null);
+
+  useEffect(() => {
+    if (loaded) {
+      setTimeout(() => {
+        setDev(true);
+      }, 1900);
+    }
+  }, [loaded]);
 
   return (
     <Box
@@ -32,8 +42,10 @@ const Header = ({ onLoad, headshot, timer }) => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: 'start',
+          // alignItems: 'center',
           overflowX: 'hidden',
+          width: '100vw',
         }}
       >
         <Slide
@@ -42,10 +54,24 @@ const Header = ({ onLoad, headshot, timer }) => {
           timeout={700}
           container={boxRef.current}
         >
-          <Typography pl={2} fontSize={'2.2rem'}>
-            Michael DeSantis
-          </Typography>
+          <Box ref={nameRef}>
+            <Typography pl={2} fontSize={'2.2rem'}>
+              Michael DeSantis
+            </Typography>
+          </Box>
         </Slide>
+        {dev && (
+          <Slide
+            in={loaded}
+            direction="right"
+            timeout={700}
+            container={nameRef.current}
+          >
+            <Typography pl={2} fontSize={'2.2rem'}>
+              Full Stack Developer
+            </Typography>
+          </Slide>
+        )}
       </Box>
     </Box>
   );

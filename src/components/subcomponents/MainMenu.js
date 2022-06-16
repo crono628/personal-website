@@ -34,7 +34,7 @@ const MainMenu = ({ state, dispatcher, setChoice }) => {
     if (loaded) {
       setTimeout(() => {
         setTimer(true);
-      }, 2000);
+      }, 3000);
     }
   }, [loaded]);
 

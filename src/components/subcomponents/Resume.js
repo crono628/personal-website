@@ -19,7 +19,7 @@ const Resume = forwardRef((props, ref) => {
         size="small"
         sx={{
           position: 'absolute',
-          top: '107px',
+          top: '130px',
           left: '0',
           right: '0',
           marginLeft: 'auto',
@@ -38,6 +38,7 @@ const Resume = forwardRef((props, ref) => {
           display: 'flex',
           flexDirection: 'column',
           p: 1,
+          mt: 3,
         }}
       >
         <Box component="img" src={props.resume} />

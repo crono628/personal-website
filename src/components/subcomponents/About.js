@@ -1,5 +1,4 @@
-import { Card, CardContent } from '@mui/material';
-import { Box } from '@mui/system';
+import { Card, CardContent, Typography } from '@mui/material';
 import React, { forwardRef } from 'react';
 
 const About = forwardRef((props, ref) => {
@@ -16,22 +15,24 @@ const About = forwardRef((props, ref) => {
       ref={ref}
     >
       <CardContent>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-        reprehenderit nesciunt ut laudantium assumenda modi harum vero laborum
-        ipsum? Expedita corporis ex laborum incidunt architecto, vero maiores
-        unde nemo soluta.
+        <Typography>
+          Eloquent solutions to unique problems fuel my interest to learn more.
+        </Typography>
       </CardContent>
       <CardContent>
-        Repellat tenetur neque voluptatibus nobis quae ea blanditiis iusto,
-        distinctio, reprehenderit unde ratione quod voluptates quaerat
-        repudiandae aspernatur nihil? Delectus officiis rem molestiae maiores
-        voluptatum illo error nihil odio. Voluptatem?
+        <Typography>
+          Leveling up my knowledge in web development consistently gives me an
+          enormous sense of fulfillment and pride. It's the keyboard and me,
+          just a few keystrokes away from a solution.
+        </Typography>
       </CardContent>
       <CardContent>
-        Ducimus, doloribus corrupti culpa tenetur quidem, rerum fuga blanditiis
-        ab reprehenderit provident explicabo aut amet, illo minima dolorum eum!
-        Nemo dolor quaerat fuga quam fugit exercitationem accusamus deleniti,
-        illo autem?
+        <Typography>
+          Ducimus, doloribus corrupti culpa tenetur quidem, rerum fuga
+          blanditiis ab reprehenderit provident explicabo aut amet, illo minima
+          dolorum eum! Nemo dolor quaerat fuga quam fugit exercitationem
+          accusamus deleniti, illo autem?
+        </Typography>
       </CardContent>
     </Card>
   );
