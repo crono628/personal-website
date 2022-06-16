@@ -21,7 +21,7 @@ const Header = ({ onLoad, headshot, timer }) => {
     <Box
       className={timer && loaded ? '' : ''}
       sx={{
-        p: 4,
+        p: 3,
         display: 'flex',
         position: 'absolute',
         overflowX: 'hidden',
@@ -30,7 +30,7 @@ const Header = ({ onLoad, headshot, timer }) => {
     >
       <Grow in={loaded} timeout={1000}>
         <Avatar
-          sx={{ width: '4rem', minHeight: '4rem' }}
+          sx={{ width: '5rem', minHeight: '5rem' }}
           alt="Michael DeSantis"
           src={headshot}
           onLoad={onLoad}
@@ -41,7 +41,7 @@ const Header = ({ onLoad, headshot, timer }) => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'start',
+          justifyContent: 'center',
           overflowX: 'hidden',
         }}
       >
