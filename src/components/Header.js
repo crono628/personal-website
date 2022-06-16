@@ -19,11 +19,10 @@ const Header = ({ onLoad, headshot, timer }) => {
 
   return (
     <Box
-      className={timer && loaded ? 'top-left' : ''}
+      className={timer && loaded ? '' : ''}
       sx={{
         p: 4,
         display: 'flex',
-        flex: 1,
         position: 'absolute',
         overflowX: 'hidden',
       }}
@@ -31,7 +30,7 @@ const Header = ({ onLoad, headshot, timer }) => {
     >
       <Grow in={loaded} timeout={1000}>
         <Avatar
-          sx={{ width: '7rem', minHeight: '7rem' }}
+          sx={{ width: '4rem', minHeight: '4rem' }}
           alt="Michael DeSantis"
           src={headshot}
           onLoad={onLoad}
@@ -43,9 +42,7 @@ const Header = ({ onLoad, headshot, timer }) => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'start',
-          // alignItems: 'center',
           overflowX: 'hidden',
-          width: '100vw',
         }}
       >
         <Slide
@@ -55,7 +52,7 @@ const Header = ({ onLoad, headshot, timer }) => {
           container={boxRef.current}
         >
           <Box ref={nameRef}>
-            <Typography pl={2} fontSize={'2.2rem'}>
+            <Typography pl={2} fontSize={'1.2rem'}>
               Michael DeSantis
             </Typography>
           </Box>
@@ -67,7 +64,7 @@ const Header = ({ onLoad, headshot, timer }) => {
             timeout={700}
             container={nameRef.current}
           >
-            <Typography pl={2} fontSize={'2.2rem'}>
+            <Typography pl={2} fontSize={'1.2rem'}>
               Full Stack Developer
             </Typography>
           </Slide>
