@@ -3,10 +3,10 @@ import React, { useReducer, useState } from 'react';
 import { initialState, reducer } from '../helpers/helpers';
 import About from './subcomponents/About';
 import MainMenu from './subcomponents/MainMenu';
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import Projects from './subcomponents/Projects';
 import Resume from './subcomponents/Resume';
 import Contact from './subcomponents/Contact';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const FlexBox = styled(Box)({
   display: 'flex',
@@ -43,9 +43,10 @@ const Body = ({ resume }) => {
   }
 
   const cancelStyles = {
-    alignSelf: 'flex-end',
+    alignSelf: 'flex-start',
     cursor: 'pointer',
     pb: 1,
+    mt: 2,
     fontSize: '2rem',
   };
 
@@ -76,22 +77,22 @@ const Body = ({ resume }) => {
           >
             {choice.about ? (
               <FlexBox>
-                <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
+                <ArrowBackIcon onClick={handleCancel} sx={cancelStyles} />
                 <About />
               </FlexBox>
             ) : choice.projects ? (
               <FlexBox>
-                <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
+                <ArrowBackIcon onClick={handleCancel} sx={cancelStyles} />
                 <Projects />
               </FlexBox>
             ) : choice.resume ? (
               <FlexBox>
-                <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
+                <ArrowBackIcon onClick={handleCancel} sx={cancelStyles} />
                 <Resume resume={resume} />
               </FlexBox>
             ) : choice.contact ? (
               <FlexBox>
-                <CancelOutlinedIcon onClick={handleCancel} sx={cancelStyles} />
+                <ArrowBackIcon onClick={handleCancel} sx={cancelStyles} />
                 <Contact />
               </FlexBox>
             ) : null}
