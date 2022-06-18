@@ -1,6 +1,13 @@
-import { Button, styled, TextField } from '@mui/material';
+import { Button, Snackbar, styled, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { forwardRef, useState } from 'react';
+import { db } from '../../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const CustomTextField = styled(TextField)({
   '& label.Mui-focused': {
@@ -23,6 +30,33 @@ const CustomTextField = styled(TextField)({
 });
 
 const Contact = () => {
+  const [input, setInput] = useState({ name: '', email: '', message: '' });
+  const [open, setOpen] = useState(false);
+
+  const handleSumbit = async (e) => {
+    e.preventDefault();
+    try {
+      await addDoc(collection(db, 'contact'), {
+        name: input.name,
+        email: input.email,
+        message: input.message,
+      });
+      setOpen(true);
+    } catch (error) {
+      console.log(error);
+    }
+    setInput({ name: '', email: '', message: '' });
+    console.log('submit');
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <Box
       sx={{
@@ -32,8 +66,20 @@ const Contact = () => {
         display: 'flex',
         flexDirection: 'column',
         p: 2,
+        mt: 2,
       }}
     >
+      <Typography alignSelf="center">Let's talk!</Typography>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert
+          color="success"
+          onClose={handleClose}
+          severity="success"
+          sx={{ width: '100%' }}
+        >
+          Thanks! I will contact you soon.
+        </Alert>
+      </Snackbar>
       <Box
         sx={{
           display: 'flex',
@@ -44,17 +90,33 @@ const Contact = () => {
           p: 2,
         }}
         component="form"
+        onSubmit={handleSumbit}
       >
-        <CustomTextField label="Name" required />
-        <CustomTextField label="Email" required />
         <CustomTextField
+          onChange={(e) => setInput({ ...input, name: e.target.value })}
+          value={input.name}
+          label="Name"
+          required
+        />
+        <CustomTextField
+          onChange={(e) => setInput({ ...input, email: e.target.value })}
+          type="email"
+          value={input.email}
+          label="Email"
+          required
+        />
+        <CustomTextField
+          value={input.message}
           label="Message"
+          onChange={(e) => setInput({ ...input, message: e.target.value })}
           required
           multiline
           minRows={4}
           maxRows={4}
         />
-        <Button sx={{ color: 'white' }}>Submit</Button>
+        <Button onSubmit={handleSumbit} type="submit" sx={{ color: 'white' }}>
+          Submit
+        </Button>
       </Box>
     </Box>
   );

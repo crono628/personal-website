@@ -47,14 +47,14 @@ const MainMenu = ({ state, dispatcher, setChoice }) => {
     setChoice(key);
     setTimeout(() => {
       dispatcher.allFalse();
-    }, 800);
+    }, 600);
   }
 
   return (
     <Slide
       in={loaded && timer}
       direction="left"
-      timeout={500}
+      timeout={400}
       container={paperRef.current}
     >
       <Box
@@ -63,7 +63,7 @@ const MainMenu = ({ state, dispatcher, setChoice }) => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          mt: '150px',
+          mt: '165px',
         }}
       >
         {Object.keys(dispatcher).map((key, index) => {

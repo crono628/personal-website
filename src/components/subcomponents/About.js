@@ -10,6 +10,7 @@ const About = forwardRef((props, ref) => {
         maxWidth: '650px',
         display: 'flex',
         flexDirection: 'column',
+        mt: 2,
       }}
       {...props}
       ref={ref}
@@ -21,9 +22,9 @@ const About = forwardRef((props, ref) => {
       </CardContent>
       <CardContent>
         <Typography>
-          Leveling up my knowledge in web development consistently gives me an
-          enormous sense of fulfillment and pride. It's the keyboard and me,
-          just a few keystrokes away from a solution.
+          Leveling up my knowledge in web development gives me an enormous sense
+          of fulfillment and pride. It's the keyboard and me, just a few
+          keystrokes away from a solution.
         </Typography>
       </CardContent>
       <CardContent>
