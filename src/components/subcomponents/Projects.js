@@ -5,11 +5,15 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  LinearProgress,
   Typography,
 } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
+import { projectReducer, projectState } from '../../helpers/helpers';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Projects = () => {
+  const [state, dispatch] = useReducer(projectReducer, projectState);
   const fontStyles = { color: '#002f6c' };
   const cardStyles = {
     width: '75vw',
@@ -20,11 +24,24 @@ const Projects = () => {
     m: 2,
   };
 
+  useEffect(() => {}, [state]);
+
+  console.log(state);
+
   return (
     <Box>
       <Card sx={cardStyles}>
         <Card sx={{ m: 1 }}>
-          <CardMedia component="img" image={require('../../img/waldo.gif')} />
+          <CardMedia
+            onLoad={() => dispatch({ type: 'waldo' })}
+            component="img"
+            image={require('../../img/waldo.gif')}
+          />
+          {!state.waldo ? (
+            <Box sx={{ width: '100%' }}>
+              <LinearProgress />
+            </Box>
+          ) : null}
           <CardContent>
             <Typography gutterBottom variant="h5" sx={fontStyles}>
               Where's Waldo?
@@ -60,7 +77,16 @@ const Projects = () => {
       </Card>
       <Card sx={cardStyles}>
         <Card sx={{ m: 1 }}>
-          <CardMedia component="img" image={require('../../img/weather.gif')} />
+          <CardMedia
+            onLoad={() => dispatch({ type: 'weather' })}
+            component="img"
+            image={require('../../img/weather.gif')}
+          />
+          {!state.weather ? (
+            <Box sx={{ width: '100%' }}>
+              <LinearProgress />
+            </Box>
+          ) : null}
           <CardContent>
             <Typography gutterBottom variant="h5" sx={fontStyles}>
               Weather Forecast
@@ -94,9 +120,15 @@ const Projects = () => {
       <Card sx={cardStyles}>
         <Card sx={{ m: 1 }}>
           <CardMedia
+            onLoad={() => dispatch({ type: 'todo' })}
             component="img"
             image={require('../../img/jennaslist.gif')}
           />
+          {!state.todo ? (
+            <Box sx={{ width: '100%' }}>
+              <LinearProgress />
+            </Box>
+          ) : null}
           <CardContent>
             <Typography gutterBottom variant="h5" sx={fontStyles}>
               Jenna's List
@@ -130,8 +162,16 @@ const Projects = () => {
       </Card>
       <Card sx={cardStyles}>
         <Card sx={{ m: 1 }}>
-          <CardMedia component="img" image={require('../../img/thewiz.gif')} />
-
+          <CardMedia
+            onLoad={() => dispatch({ type: 'cart' })}
+            component="img"
+            image={require('../../img/thewiz.gif')}
+          />
+          {!state.cart ? (
+            <Box sx={{ width: '100%' }}>
+              <LinearProgress />
+            </Box>
+          ) : null}
           <CardContent>
             <Typography gutterBottom variant="h5" sx={fontStyles}>
               Shopping Cart

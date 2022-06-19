@@ -1,9 +1,10 @@
-import { Button, Card } from '@mui/material';
+import { Button, Card, LinearProgress } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 const Resume = forwardRef((props, ref) => {
+  const [loading, setLoading] = useState(true);
   function handleDownload() {
     const link = document.createElement('a');
     link.download = 'MichaelDeSantisResume';
@@ -41,7 +42,16 @@ const Resume = forwardRef((props, ref) => {
           mt: 3,
         }}
       >
-        <Box component="img" src={props.resume} />
+        <Box
+          onLoad={() => setLoading(false)}
+          component="img"
+          src={props.resume}
+        />
+        {loading ? (
+          <Box sx={{ width: '100%' }}>
+            <LinearProgress />
+          </Box>
+        ) : null}
       </Card>
     </Box>
   );
