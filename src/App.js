@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Body from './components/Body';
 import Header from './components/Header';
 import { LoadedContext, PaperContext } from './helpers/helpers';
+import Scroll from './components/subcomponents/Scroll';
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -30,6 +31,7 @@ const App = () => {
 
   return (
     <Container maxWidth="md">
+      <Scroll below={250} />
       <Paper
         ref={paperRef}
         sx={{

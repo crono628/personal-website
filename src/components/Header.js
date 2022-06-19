@@ -12,7 +12,7 @@ const Header = ({ onLoad, headshot, timer }) => {
     if (loaded) {
       setTimeout(() => {
         setDev(true);
-      }, 750);
+      }, 200);
     }
   }, [loaded]);
 
@@ -26,7 +26,7 @@ const Header = ({ onLoad, headshot, timer }) => {
         overflowX: 'hidden',
       }}
     >
-      <Grow in={loaded} timeout={700}>
+      <Grow in={loaded} timeout={400}>
         <Avatar
           sx={{ width: '4.5rem', minHeight: '4.5rem' }}
           alt="Michael DeSantis"
@@ -47,7 +47,7 @@ const Header = ({ onLoad, headshot, timer }) => {
         <Slide
           in={loaded}
           direction="right"
-          timeout={700}
+          timeout={400}
           container={boxRef.current}
         >
           <Typography pl={2} fontSize={'1.2rem'}>
@@ -58,7 +58,7 @@ const Header = ({ onLoad, headshot, timer }) => {
         <Slide
           in={loaded && dev}
           direction="right"
-          timeout={700}
+          timeout={400}
           container={boxRef.current}
         >
           <Typography pl={2} fontSize={'1.2rem'}>

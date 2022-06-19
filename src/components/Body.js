@@ -1,4 +1,4 @@
-import { Box, Fade, styled } from '@mui/material';
+import { Box, Fade, IconButton, styled } from '@mui/material';
 import React, { useReducer, useState } from 'react';
 import { initialState, reducer } from '../helpers/helpers';
 import About from './subcomponents/About';
@@ -48,6 +48,11 @@ const Body = ({ resume }) => {
     pb: 1,
     mt: 2,
     fontSize: '2rem',
+    '&:hover, &.Mui-focusVisible': {
+      transition: '0.3s',
+      color: '#397BA6',
+      backgroundColor: '#4f83cc',
+    },
   };
 
   const dispatcher = {
@@ -77,22 +82,30 @@ const Body = ({ resume }) => {
           >
             {choice.about ? (
               <FlexBox>
-                <ArrowBackIcon onClick={handleCancel} sx={cancelStyles} />
+                <IconButton sx={cancelStyles} onClick={handleCancel}>
+                  <ArrowBackIcon />
+                </IconButton>
                 <About />
               </FlexBox>
             ) : choice.projects ? (
               <FlexBox>
-                <ArrowBackIcon onClick={handleCancel} sx={cancelStyles} />
+                <IconButton sx={cancelStyles} onClick={handleCancel}>
+                  <ArrowBackIcon />
+                </IconButton>
                 <Projects />
               </FlexBox>
             ) : choice.resume ? (
               <FlexBox>
-                <ArrowBackIcon onClick={handleCancel} sx={cancelStyles} />
+                <IconButton sx={cancelStyles} onClick={handleCancel}>
+                  <ArrowBackIcon />
+                </IconButton>
                 <Resume resume={resume} />
               </FlexBox>
             ) : choice.contact ? (
               <FlexBox>
-                <ArrowBackIcon onClick={handleCancel} sx={cancelStyles} />
+                <IconButton sx={cancelStyles} onClick={handleCancel}>
+                  <ArrowBackIcon />
+                </IconButton>
                 <Contact />
               </FlexBox>
             ) : null}
