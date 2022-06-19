@@ -29,17 +29,17 @@ const Body = ({ resume }) => {
     setChoice({ ...choice, [key]: true });
   }
 
-  function handleX() {
+  function handleBack() {
     let copy = { ...choice };
     Object.keys(copy).map((key) => (copy[key] = false));
     return copy;
   }
 
   function handleCancel() {
-    setChoice(handleX);
+    setChoice(handleBack);
     setTimeout(() => {
       dispatcher.allTrue();
-    }, 175);
+    }, 200);
   }
 
   const cancelStyles = {
