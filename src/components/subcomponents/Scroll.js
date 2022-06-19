@@ -39,11 +39,15 @@ const Scroll = ({ below }) => {
               color: '#397BA6',
               backgroundColor: '#4f83cc',
             },
-            right: '5%',
+            right: '1.5vw',
           }}
           onClick={handleClick}
         >
-          <ExpandLessIcon />
+          <ExpandLessIcon
+            sx={{
+              fontSize: '2rem',
+            }}
+          />
         </IconButton>
       )}
     </>

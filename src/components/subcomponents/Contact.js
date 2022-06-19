@@ -1,4 +1,12 @@
-import { Button, Snackbar, styled, TextField, Typography } from '@mui/material';
+import {
+  Button,
+  Card,
+  CardContent,
+  Snackbar,
+  styled,
+  TextField,
+  Typography,
+} from '@mui/material';
 import { Box } from '@mui/system';
 import React, { forwardRef, useState } from 'react';
 import { db } from '../../firebase';
@@ -58,7 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <Box
+    <Card
       sx={{
         backgroundColor: '#4f83cc',
         width: '75vw',
@@ -69,56 +77,72 @@ const Contact = () => {
         mt: 2,
       }}
     >
-      <Typography alignSelf="center">Let's talk!</Typography>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert
-          color="success"
-          onClose={handleClose}
-          severity="success"
-          sx={{ width: '100%' }}
+      <CardContent>
+        <Typography variant="h4" textAlign="center">
+          Let's talk!
+        </Typography>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            color="success"
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: '100%' }}
+          >
+            Thanks! I will contact you soon.
+          </Alert>
+        </Snackbar>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '350px',
+            mt: 2,
+            p: 2,
+          }}
+          component="form"
+          onSubmit={handleSumbit}
         >
-          Thanks! I will contact you soon.
-        </Alert>
-      </Snackbar>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '350px',
-          mt: 2,
-          p: 2,
-        }}
-        component="form"
-        onSubmit={handleSumbit}
-      >
-        <CustomTextField
-          onChange={(e) => setInput({ ...input, name: e.target.value })}
-          value={input.name}
-          label="Name"
-          required
-        />
-        <CustomTextField
-          onChange={(e) => setInput({ ...input, email: e.target.value })}
-          type="email"
-          value={input.email}
-          label="Email"
-          required
-        />
-        <CustomTextField
-          value={input.message}
-          label="Message"
-          onChange={(e) => setInput({ ...input, message: e.target.value })}
-          required
-          multiline
-          minRows={4}
-          maxRows={4}
-        />
-        <Button onSubmit={handleSumbit} type="submit" sx={{ color: 'white' }}>
-          Submit
-        </Button>
-      </Box>
-    </Box>
+          <CustomTextField
+            onChange={(e) => setInput({ ...input, name: e.target.value })}
+            value={input.name}
+            label="Name"
+            required
+          />
+          <CustomTextField
+            onChange={(e) => setInput({ ...input, email: e.target.value })}
+            type="email"
+            value={input.email}
+            label="Email"
+            required
+          />
+          <CustomTextField
+            value={input.message}
+            label="Message"
+            onChange={(e) => setInput({ ...input, message: e.target.value })}
+            required
+            multiline
+            minRows={4}
+            maxRows={4}
+          />
+          <Button
+            size="large"
+            variant="outlined"
+            onSubmit={handleSumbit}
+            type="submit"
+            sx={{
+              color: 'white',
+              width: '200px',
+              alignSelf: 'center',
+              border: ' solid white',
+              '&:hover': { border: 'solid white' },
+            }}
+          >
+            Submit
+          </Button>
+        </Box>
+      </CardContent>
+    </Card>
   );
 };
 

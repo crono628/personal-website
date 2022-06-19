@@ -11,7 +11,7 @@ import React from 'react';
 
 const Projects = () => {
   const fontStyles = { color: '#002f6c' };
-  const boxStyles = {
+  const cardStyles = {
     width: '75vw',
     maxWidth: '450px',
     display: 'flex',
@@ -22,7 +22,7 @@ const Projects = () => {
 
   return (
     <Box>
-      <Box sx={boxStyles}>
+      <Card sx={cardStyles}>
         <Card sx={{ m: 1 }}>
           <CardMedia component="img" image={require('../../img/waldo.gif')} />
           <CardContent>
@@ -57,8 +57,8 @@ const Projects = () => {
             </Button>
           </CardActions>
         </Card>
-      </Box>
-      <Box sx={boxStyles}>
+      </Card>
+      <Card sx={cardStyles}>
         <Card sx={{ m: 1 }}>
           <CardMedia component="img" image={require('../../img/weather.gif')} />
           <CardContent>
@@ -90,8 +90,8 @@ const Projects = () => {
             </Button>
           </CardActions>
         </Card>
-      </Box>
-      <Box sx={boxStyles}>
+      </Card>
+      <Card sx={cardStyles}>
         <Card sx={{ m: 1 }}>
           <CardMedia
             component="img"
@@ -127,8 +127,8 @@ const Projects = () => {
             </Button>
           </CardActions>
         </Card>
-      </Box>
-      <Box sx={boxStyles}>
+      </Card>
+      <Card sx={cardStyles}>
         <Card sx={{ m: 1 }}>
           <CardMedia component="img" image={require('../../img/thewiz.gif')} />
 
@@ -161,7 +161,7 @@ const Projects = () => {
             </Button>
           </CardActions>
         </Card>
-      </Box>
+      </Card>
     </Box>
   );
 };

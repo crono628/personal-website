@@ -37,7 +37,6 @@ const App = () => {
         sx={{
           backgroundColor: '#01579b',
           minHeight: '85vh',
-          minHeight: '650px',
           my: 3,
           pb: 10,
           overflowX: 'hidden',

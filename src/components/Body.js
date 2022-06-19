@@ -83,28 +83,44 @@ const Body = ({ resume }) => {
             {choice.about ? (
               <FlexBox>
                 <IconButton sx={cancelStyles} onClick={handleCancel}>
-                  <ArrowBackIcon />
+                  <ArrowBackIcon
+                    sx={{
+                      fontSize: '2rem',
+                    }}
+                  />
                 </IconButton>
                 <About />
               </FlexBox>
             ) : choice.projects ? (
               <FlexBox>
                 <IconButton sx={cancelStyles} onClick={handleCancel}>
-                  <ArrowBackIcon />
+                  <ArrowBackIcon
+                    sx={{
+                      fontSize: '2rem',
+                    }}
+                  />
                 </IconButton>
                 <Projects />
               </FlexBox>
             ) : choice.resume ? (
               <FlexBox>
                 <IconButton sx={cancelStyles} onClick={handleCancel}>
-                  <ArrowBackIcon />
+                  <ArrowBackIcon
+                    sx={{
+                      fontSize: '2rem',
+                    }}
+                  />
                 </IconButton>
                 <Resume resume={resume} />
               </FlexBox>
             ) : choice.contact ? (
               <FlexBox>
                 <IconButton sx={cancelStyles} onClick={handleCancel}>
-                  <ArrowBackIcon />
+                  <ArrowBackIcon
+                    sx={{
+                      fontSize: '2rem',
+                    }}
+                  />
                 </IconButton>
                 <Contact />
               </FlexBox>
