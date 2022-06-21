@@ -34,32 +34,7 @@ function reducer(state, action) {
   }
 }
 
-const projectState = { waldo: false, weather: false, todo: false, cart: false };
-
-function projectReducer(state, action) {
-  switch (action.type) {
-    case 'waldo':
-      return { ...state, waldo: true };
-    case 'weather':
-      return { ...state, weather: true };
-    case 'todo':
-      return { ...state, todo: true };
-    case 'cart':
-      return { ...state, cart: true };
-
-    default:
-      throw new Error(`Unknown action type: ${action.type}`);
-  }
-}
-
 const LoadedContext = createContext();
 const PaperContext = createContext();
 
-export {
-  initialState,
-  reducer,
-  LoadedContext,
-  PaperContext,
-  projectReducer,
-  projectState,
-};
+export { initialState, reducer, LoadedContext, PaperContext };
