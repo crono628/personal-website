@@ -5,22 +5,12 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  LinearProgress,
   Typography,
 } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { projectCollection } from '../../helpers/projectData';
 
 const Projects = () => {
-  const [projectLoad, setProjectLoad] = useState({
-    waldo: false,
-    weather: false,
-    todo: false,
-    cart: false,
-  });
-
-  useEffect(() => {}, [projectLoad]);
-
   const fontStyles = { color: '#002f6c' };
   const cardStyles = {
     width: '75vw',
@@ -31,28 +21,13 @@ const Projects = () => {
     m: 2,
   };
 
-  const handleOnLoad = (item) => {
-    let copy = { ...projectLoad };
-    copy[item] = true;
-    setProjectLoad(copy);
-  };
-
   return (
     <Box>
       {projectCollection.map((project) => {
         return (
           <Card sx={cardStyles} key={project.name}>
             <Card sx={{ m: 1 }}>
-              <CardMedia
-                onLoad={() => handleOnLoad(project.onLoad)}
-                component="img"
-                image={project.image}
-              />
-              {!projectLoad[project.onLoad] ? (
-                <Box sx={{ width: '100%' }}>
-                  <LinearProgress />
-                </Box>
-              ) : null}
+              <CardMedia component="img" image={project.image} />
               <CardContent>
                 <Typography gutterBottom variant="h5" sx={fontStyles}>
                   {project.name}
