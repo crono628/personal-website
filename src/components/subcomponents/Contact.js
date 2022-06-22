@@ -38,7 +38,12 @@ const CustomTextField = styled(TextField)({
 });
 
 const Contact = () => {
-  const [input, setInput] = useState({ name: '', email: '', message: '' });
+  const [input, setInput] = useState({
+    name: '',
+    email: '',
+    message: '',
+    timestamp: '',
+  });
   const [open, setOpen] = useState(false);
 
   const handleSumbit = async (e) => {
@@ -48,22 +53,16 @@ const Contact = () => {
         name: input.name,
         email: input.email,
         message: input.message,
+        timestamp: Date.now(),
       });
       setOpen(true);
     } catch (error) {
       console.log(error);
     }
-    setInput({ name: '', email: '', message: '' });
-    console.log('submit');
+    setInput({ name: '', email: '', message: '', timestamp: '' });
   };
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
+  const handleClose = () => setOpen(false);
 
   return (
     <Card
@@ -81,7 +80,7 @@ const Contact = () => {
         <Typography variant="h4" textAlign="center">
           Let's talk!
         </Typography>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
           <Alert
             color="success"
             onClose={handleClose}
