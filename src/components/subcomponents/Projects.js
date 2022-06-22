@@ -8,7 +8,7 @@ import {
   LinearProgress,
   Typography,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { projectCollection } from '../../helpers/projectData';
 
 const Projects = () => {
@@ -18,6 +18,9 @@ const Projects = () => {
     todo: false,
     cart: false,
   });
+
+  useEffect(() => {}, [projectLoad]);
+
   const fontStyles = { color: '#002f6c' };
   const cardStyles = {
     width: '75vw',
