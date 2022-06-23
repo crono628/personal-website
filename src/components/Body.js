@@ -14,6 +14,16 @@ const FlexBox = styled(Box)({
   flexDirection: 'column',
 });
 
+const boxStyles = {
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  alignItems: 'center',
+  width: '100%',
+  height: '100%',
+  mt: '-55px',
+};
+
 const Body = ({ resume }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [choice, setChoice] = useState({
@@ -39,7 +49,7 @@ const Body = ({ resume }) => {
     setChoice(handleBack);
     setTimeout(() => {
       dispatcher.allTrue();
-    }, 200);
+    }, 300);
   }
 
   const cancelStyles = {
@@ -71,63 +81,32 @@ const Body = ({ resume }) => {
         dispatcher={dispatcher}
         setChoice={handleChoice}
       />
-      {allFalse && (
-        <Fade in={allFalse} timeout={400}>
-          <Box
-            sx={{
-              display: !allFalse ? 'none' : 'flex',
-              mt: '-55px',
-              justifyContent: 'center',
-            }}
+      {/* map and render components*/}
+      {Object.keys(choice).map((key) => {
+        return (
+          <Fade
+            key={key}
+            timeout={400}
+            in={choice[key] && allFalse}
+            mountOnEnter
+            unmountOnExit
           >
-            {choice.about ? (
-              <FlexBox>
-                <IconButton sx={cancelStyles} onClick={handleCancel}>
-                  <ArrowBackIcon
-                    sx={{
-                      fontSize: '2rem',
-                    }}
-                  />
-                </IconButton>
-                <About />
-              </FlexBox>
-            ) : choice.projects ? (
-              <FlexBox>
-                <IconButton sx={cancelStyles} onClick={handleCancel}>
-                  <ArrowBackIcon
-                    sx={{
-                      fontSize: '2rem',
-                    }}
-                  />
-                </IconButton>
-                <Projects />
-              </FlexBox>
-            ) : choice.resume ? (
-              <FlexBox>
-                <IconButton sx={cancelStyles} onClick={handleCancel}>
-                  <ArrowBackIcon
-                    sx={{
-                      fontSize: '2rem',
-                    }}
-                  />
-                </IconButton>
-                <Resume resume={resume} />
-              </FlexBox>
-            ) : choice.contact ? (
-              <FlexBox>
-                <IconButton sx={cancelStyles} onClick={handleCancel}>
-                  <ArrowBackIcon
-                    sx={{
-                      fontSize: '2rem',
-                    }}
-                  />
-                </IconButton>
-                <Contact />
-              </FlexBox>
-            ) : null}
-          </Box>
-        </Fade>
-      )}
+            <Box sx={boxStyles}>
+              <IconButton sx={cancelStyles} onClick={handleCancel}>
+                <ArrowBackIcon
+                  sx={{
+                    fontSize: '2rem',
+                  }}
+                />
+              </IconButton>
+              {key === 'about' && <About />}
+              {key === 'projects' && <Projects />}
+              {key === 'resume' && <Resume resume={resume} />}
+              {key === 'contact' && <Contact />}
+            </Box>
+          </Fade>
+        );
+      })}
     </>
   );
 };

@@ -34,10 +34,11 @@ const Scroll = ({ below }) => {
             zIndex: 2,
             position: 'fixed',
             bottom: '2vh',
+            backgroundColor: '#4f83cc',
             '&:hover, &.Mui-focusVisible': {
               transition: '0.3s',
               color: '#397BA6',
-              backgroundColor: '#4f83cc',
+              backgroundColor: '#01579b',
             },
             right: '1.5vw',
           }}

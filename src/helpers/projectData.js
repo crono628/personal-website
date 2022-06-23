@@ -18,7 +18,7 @@ const projectCollection = [
   {
     name: 'Weather Forecast',
     description:
-      'This weather app is built with React, styled with MUI, and relies on an API from OpenWeatherMap. Prioritizing reusable components in this app produces consistently reliable and symetric results.',
+      'This weather app is built with React, styled with MUI, and relies on an API from OpenWeatherMap. Prioritizing reusable components in this app produces consistently reliable and symmetric results.',
     image: require('../img/weather.gif'),
     repo: 'https://github.com/crono628/new-weather-app',
     live: 'https://weather-4b046.web.app/',

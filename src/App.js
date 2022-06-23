@@ -36,7 +36,7 @@ const App = () => {
         ref={paperRef}
         sx={{
           backgroundColor: '#01579b',
-          minHeight: '85vh',
+          minHeight: '95vh',
           my: 3,
           pb: 10,
           overflowX: 'hidden',

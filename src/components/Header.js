@@ -62,7 +62,7 @@ const Header = ({ onLoad, headshot, timer }) => {
           container={boxRef.current}
         >
           <Typography pl={2} fontSize={'1.2rem'}>
-            Full Stack Web Developer
+            Web Developer
           </Typography>
         </Slide>
       </Box>
