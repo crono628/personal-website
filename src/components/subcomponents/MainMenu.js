@@ -47,7 +47,7 @@ const MainMenu = ({ state, dispatcher, setChoice }) => {
     setChoice(key);
     setTimeout(() => {
       dispatcher.allFalse();
-    }, 600);
+    }, 400);
   }
 
   return (
@@ -69,7 +69,7 @@ const MainMenu = ({ state, dispatcher, setChoice }) => {
         {Object.keys(dispatcher).map((key, index) => {
           if (index < 4) {
             return (
-              <Fade in={state[key]} key={key + index} timeout={500}>
+              <Fade in={state[key]} key={key + index} timeout={300}>
                 <Card
                   sx={{ ...cardStyles, display: allFalse ? 'none' : '' }}
                   onClick={() => handleClick(dispatcher, key)}

@@ -86,7 +86,7 @@ const Body = ({ resume }) => {
         return (
           <Fade
             key={key}
-            timeout={400}
+            timeout={300}
             in={choice[key] && allFalse}
             mountOnEnter
             unmountOnExit
