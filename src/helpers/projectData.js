@@ -3,7 +3,7 @@ const projectCollection = [
     name: 'Personal Website',
     description:
       'This is the website you are currently visiting; a compilation of my programming journey.',
-    image: null,
+    image: require('../img/website.gif'),
     repo: 'https://github.com/crono628/personal-website',
     live: 'https://michaelprograms.web.app/',
   },

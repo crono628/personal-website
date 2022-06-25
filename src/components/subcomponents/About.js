@@ -29,10 +29,10 @@ const About = forwardRef((props, ref) => {
       </CardContent>
       <CardContent>
         <Typography>
-          Ducimus, doloribus corrupti culpa tenetur quidem, rerum fuga
-          blanditiis ab reprehenderit provident explicabo aut amet, illo minima
-          dolorum eum! Nemo dolor quaerat fuga quam fugit exercitationem
-          accusamus deleniti, illo autem?
+          Getting to intimately know every inch of a subject is my superpower;
+          whether it be coding, cooking, coffee, shaving, health, hiking, video
+          games or anything else I invest myself in, I always value an
+          opportunity to get closer to achieving mastery.
         </Typography>
       </CardContent>
     </Card>
