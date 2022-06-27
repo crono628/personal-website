@@ -30,7 +30,7 @@ const About = forwardRef((props, ref) => {
       <CardContent>
         <Typography>
           Getting to intimately know every inch of a subject is my superpower;
-          whether it be coding, cooking, coffee, shaving, health, hiking, video
+          whether it's coding, cooking, coffee, shaving, health, hiking, video
           games or anything else I invest myself in, I always value an
           opportunity to get closer to achieving mastery.
         </Typography>

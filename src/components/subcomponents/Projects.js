@@ -27,7 +27,7 @@ const Projects = () => {
         return (
           <Card sx={cardStyles} key={project.name}>
             <Card sx={{ m: 1 }}>
-              <CardMedia component="img" image={project.image} />
+              <CardMedia component="img" image={project.animation} />
               <CardContent>
                 <Typography gutterBottom variant="h5" sx={fontStyles}>
                   {project.name}
