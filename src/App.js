@@ -5,6 +5,7 @@ import Body from './components/Body';
 import Header from './components/Header';
 import { LoadedContext, PaperContext } from './helpers/helpers';
 import Scroll from './components/subcomponents/Scroll';
+import MichaelDeSantisResume from './img/MichaelDeSantisResume.pdf';
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -46,7 +47,7 @@ const App = () => {
         <LoadedContext.Provider value={loaded}>
           <PaperContext.Provider value={paperRef}>
             <Header onLoad={handleOnLoad} headshot={img[0]} timer={timer} />
-            <Body resume={img[1]} />
+            <Body resume={img[1]} download={MichaelDeSantisResume} />
           </PaperContext.Provider>
         </LoadedContext.Provider>
       </Paper>

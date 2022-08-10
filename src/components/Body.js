@@ -24,7 +24,7 @@ const boxStyles = {
   mt: '-55px',
 };
 
-const Body = ({ resume }) => {
+const Body = ({ resume, download }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [choice, setChoice] = useState({
     about: false,
@@ -101,7 +101,9 @@ const Body = ({ resume }) => {
               </IconButton>
               {key === 'about' && <About />}
               {key === 'projects' && <Projects />}
-              {key === 'resume' && <Resume resume={resume} />}
+              {key === 'resume' && (
+                <Resume resume={resume} download={download} />
+              )}
               {key === 'contact' && <Contact />}
             </Box>
           </Fade>

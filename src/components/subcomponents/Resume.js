@@ -8,7 +8,7 @@ const Resume = forwardRef((props, ref) => {
   function handleDownload() {
     const link = document.createElement('a');
     link.download = 'MichaelDeSantisResume';
-    link.href = props.resume;
+    link.href = props.download;
     link.click();
   }
 
