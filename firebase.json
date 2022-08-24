@@ -1,7 +1,0 @@
-{
-  "hosting": {
-    "public": "build",
-    "site": "michaelprograms",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-  }
-}
