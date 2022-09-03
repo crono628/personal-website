@@ -14,6 +14,43 @@
   font-family: 'Silkscreen', cursive;
 }
 
+.left-slide {
+  animation: left-slide 1s ease 0s 1 normal forwards;
+  opacity: 1;
+}
+
+.right-slide {
+  animation: right-slide 1s ease 0s 1 normal forwards;
+  opacity: 1;
+}
+
+@keyframes right-slide {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+}
+
+@keyframes left-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+p {
+  opacity: 0;
+}
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
