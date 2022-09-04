@@ -4,11 +4,17 @@ import github from '../assets/github.svg';
 
 const Header = () => {
   return (
-    <div className=" silkscreen  ml-3 p-5 mb-32 text-lg sm:text-2xl w-full ">
-      <div className="fixed top-0 left-0 p-5 bg-orange-300 z-50 w-full">
-        <div>Michael DeSantis</div>
-        <div>Web Developer</div>
+    <div className="sticky w-full top-0 z-50 flex sm:block text-lg sm:text-2xl ">
+      <div className="w-full bg-orange-300 px-5 pt-5">
+        <div className="">Michael DeSantis</div>
+        <div className="">Web Developer</div>
         <div>--</div>
+      </div>
+      <div className="bg-orange-300 sm:bg-transparent px-5 pt-6 sm:pt-5 sm:absolute">
+        <div className="my-0 text-xs sm:mb-3  sm:text-sm">About Me</div>
+        <div className="my-0 text-xs sm:my-3  sm:text-sm">Projects</div>
+        <div className="my-0 text-xs sm:my-3  sm:text-sm">Resume</div>
+        <div className="my-0 text-xs sm:my-3  sm:text-sm">Contact</div>
       </div>
     </div>
   );
