@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 const ScrollButton = ({ below }) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(null);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     if (below) {
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     }
-  });
+  }, []);
 
   const handleClick = () => {
     window.scrollTo({
@@ -27,20 +28,16 @@ const ScrollButton = ({ below }) => {
   return (
     <>
       <button
-        style={below && show ? inAnimation : outAnimation}
-        className="transition-opacity fixed bottom-0 right-0 mb-5 mr-5 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full"
+        className={`${
+          show ? 'animate-btnIn ' : !show && loaded ? 'animate-btnOut ' : ''
+        } opacity-0 z-50 sticky bottom-10 float-right mb-5 mr-5 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full`}
         onClick={handleClick}
+        onAnimationEnd={() => setLoaded(true)}
       >
         Top
       </button>
     </>
   );
-};
-
-const inAnimation = { animation: 'inAnimation 250ms ease-in' };
-const outAnimation = {
-  animation: 'outAnimation 270ms ease-out',
-  animationFillMode: 'forwards',
 };
 
 export default ScrollButton;

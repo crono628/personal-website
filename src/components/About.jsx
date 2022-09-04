@@ -3,13 +3,17 @@ import React from 'react';
 const About = () => {
   return (
     <div>
+      <div className="sticky top-20 sm:top-24 bg-orange-300 z-40 text-2xl py-5 w-full">
+        About Me
+      </div>
+
       {homeText.map((text, index) => {
         return (
           <div
             key={index}
-            className="p-5 flex flex-col items-start justify-start "
+            className="py-5 flex flex-col items-start justify-start "
           >
-            <div className="hide">{text}</div>
+            {text}
           </div>
         );
       })}
