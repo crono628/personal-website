@@ -10,3 +10,8 @@
   margin: 0;
   font-family: 'Silkscreen', cursive;
 }
+
+html {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 186 116 / var(--tw-bg-opacity));
+}

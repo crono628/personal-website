@@ -2,7 +2,7 @@ export const projectCollection = [
   {
     name: 'Personal Website',
     description:
-      'This is the website you are currently visiting; a compilation of my programming journey.',
+      'This is the website you are currently visiting; a compilation of my programming journey. It is built with Vite and React, styled with Tailwind CSS, and hosted with Firebase.',
     repo: 'https://github.com/crono628/personal-website',
     live: 'https://michaelprograms.web.app/',
   },
@@ -23,7 +23,7 @@ export const projectCollection = [
   {
     name: "Jenna's List",
     description:
-      'My wife described what her dream to-do list would look like, so I built it for her. User authorization and the backend database took the lead on this Firebase served app. React Router is utilized for signing up and logging in.',
+      'User authorization and the backend database took the lead on this Firebase served app. React Router is utilized for signing up and logging in.',
     repo: 'https://github.com/crono628/react-to-do-list',
     live: 'https://www.jennaslist.app/#/login',
   },
