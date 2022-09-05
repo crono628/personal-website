@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import bars3 from '../assets/bars3.svg';
-import github from '../assets/github.svg';
 
 const Header = ({ highlight, refMeasurements }) => {
   const { about, projects, resume, contact } = highlight[0];

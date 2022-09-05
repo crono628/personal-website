@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <>
+    <div className="h-screen">
       <div className="text-center sm:pr-28 sticky top-20 sm:top-24 bg-orange-300 z-40 text-2xl py-5 w-full">
         About Me
       </div>
@@ -17,7 +17,7 @@ const About = () => {
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 
@@ -27,9 +27,4 @@ const homeText = [
   'Eloquent solutions to unique problems fuel my passion to learn more.',
   "Leveling up my web development skills gives me an enormous sense of fulfillment and pride. It's the keyboard and me, just a few keystrokes away from a solution.",
   "Getting to intimately know every inch of a subject is my superpower; whether it's coding, cooking, coffee, shaving, health, hiking, video games or anything else I invest myself in, I always value an opportunity to get closer to achieving mastery.",
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, placeat voluptate sunt veritatis illo similique? Quo voluptatibus libero id doloremque molestiae assumenda accusantium nulla fugiat aliquam fuga! Consequuntur, quidem sint!  ',
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, placeat voluptate sunt veritatis illo similique? Quo voluptatibus libero id doloremque molestiae assumenda accusantium nulla fugiat aliquam fuga! Consequuntur, quidem sint!  ',
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, placeat voluptate sunt veritatis illo similique? Quo voluptatibus libero id doloremque molestiae assumenda accusantium nulla fugiat aliquam fuga! Consequuntur, quidem sint!  ',
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, placeat voluptate sunt veritatis illo similique? Quo voluptatibus libero id doloremque molestiae assumenda accusantium nulla fugiat aliquam fuga! Consequuntur, quidem sint!  ',
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, placeat voluptate sunt veritatis illo similique? Quo voluptatibus libero id doloremque molestiae assumenda accusantium nulla fugiat aliquam fuga! Consequuntur, quidem sint!  ',
 ];
