@@ -3,7 +3,7 @@ import { projectCollection } from '../data/projectCollection';
 
 const Projects = () => {
   return (
-    <div className=" mb-36">
+    <div id="projects" className=" mb-36">
       <div className="text-center sm:pr-28 sticky top-20 sm:top-24 bg-orange-300 z-40 text-2xl py-5 w-full">
         Projects
       </div>
