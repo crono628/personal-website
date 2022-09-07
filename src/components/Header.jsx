@@ -9,14 +9,20 @@ const Header = ({ highlight, refMeasurements }) => {
     if (refMeasurements) {
       setMeasurements(refMeasurements);
     }
+    // if (scrolledY) {
+    //   window.scrollTo(0, scrolledY - measurements.header);
+    // }
   }, [refMeasurements]);
 
   function handleScroll(ref) {
-    window.scrollTo({
-      top: ref - headerRef.current.offsetHeight,
+    window.scroll({
+      top: ref - measurements.header,
+      left: 0,
       behavior: 'smooth',
     });
   }
+
+  // let scrolledY = window.scrollY;
 
   return (
     <div
@@ -53,12 +59,7 @@ const Header = ({ highlight, refMeasurements }) => {
           Resume
         </button>
         <button
-          onClick={() => {
-            document.getElementById('contact').scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-            });
-          }}
+          onClick={() => handleScroll(measurements.contact)}
           className={`${
             contact ? 'animate-highlightIn' : ''
           } my-0 text-xs px-1 rounded sm:my-3  sm:text-sm`}
