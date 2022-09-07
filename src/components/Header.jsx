@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { forwardRef } from 'react';
 
-const Header = ({ highlight, refMeasurements }) => {
+const Header = forwardRef((props, ref) => {
+  const { highlight, refMeasurements } = props;
   const { about, projects, resume, contact } = highlight[0];
   const [measurements, setMeasurements] = useState(null);
-  const headerRef = useRef();
 
   useEffect(() => {
     if (refMeasurements) {
@@ -12,20 +13,14 @@ const Header = ({ highlight, refMeasurements }) => {
   }, [refMeasurements]);
 
   function handleScroll(ref) {
-    window.scroll({
-      top: ref,
-      left: 0,
-      behavior: 'smooth',
-    });
+    ref.scrollIntoView({ behavior: 'smooth' });
   }
-
-  // let scrolledY = window.scrollY;
 
   return (
     <div
       className={`sticky w-full top-0 z-50 flex sm:block text-lg sm:text-2xl `}
     >
-      <div ref={headerRef} className={`w-full bg-orange-200 px-5 pt-5 `}>
+      <div className={`w-full bg-orange-200 px-5 pt-5 `}>
         <div className="">Michael DeSantis</div>
         <div className="">Web Developer</div>
         <div>--</div>
@@ -33,7 +28,7 @@ const Header = ({ highlight, refMeasurements }) => {
       <div className={`h-[${measurements?.header}px]`}></div>
       <div className="flex flex-col bg-orange-200 sm:bg-transparent px-5 pt-5 sm:absolute">
         <button
-          onClick={() => handleScroll(measurements?.about)}
+          onClick={() => handleScroll(ref.current[0])}
           className={`${
             about ? 'animate-highlightIn' : ''
           } my-0 text-xs px-1 rounded sm:mb-3  sm:text-sm`}
@@ -41,7 +36,7 @@ const Header = ({ highlight, refMeasurements }) => {
           About Me
         </button>
         <button
-          onClick={() => handleScroll(measurements?.projects)}
+          onClick={() => handleScroll(ref.current[1])}
           className={`${
             projects ? 'animate-highlightIn' : ''
           } my-0 text-xs px-1 rounded sm:my-3  sm:text-sm`}
@@ -49,7 +44,7 @@ const Header = ({ highlight, refMeasurements }) => {
           Projects
         </button>
         <button
-          onClick={() => handleScroll(measurements?.resume)}
+          onClick={() => handleScroll(ref.current[2])}
           className={`${
             resume ? 'animate-highlightIn' : ''
           } my-0 text-xs px-1 rounded sm:my-3  sm:text-sm`}
@@ -57,7 +52,7 @@ const Header = ({ highlight, refMeasurements }) => {
           Resume
         </button>
         <button
-          onClick={() => handleScroll(measurements?.contact)}
+          onClick={() => handleScroll(ref.current[3])}
           className={`${
             contact ? 'animate-highlightIn' : ''
           } my-0 text-xs px-1 rounded sm:my-3  sm:text-sm`}
@@ -67,6 +62,5 @@ const Header = ({ highlight, refMeasurements }) => {
       </div>
     </div>
   );
-};
-
+});
 export default Header;

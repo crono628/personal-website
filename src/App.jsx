@@ -8,26 +8,22 @@ import Resume from './components/Resume';
 import ScrollButton from './components/ScrollButton';
 
 const App = () => {
-  const aboutRef = useRef();
-  const projectsRef = useRef();
-  const resumeRef = useRef();
-  const contactRef = useRef();
-  const bodyRef = useRef();
+  const scrollRef = useRef([]);
   const [highlight, setHighlight] = useState([
     { about: true, projects: false, resume: false, contact: false },
   ]);
   const [refMeasurements, setRefMeasurements] = useState(null);
 
   useEffect(() => {
-    if (refMeasurements === null) {
-      setRefMeasurements({
-        header: bodyRef.current.offsetTop,
-        about: aboutRef.current.offsetTop,
-        projects: projectsRef.current.offsetTop,
-        resume: resumeRef.current.offsetTop,
-        contact: contactRef.current.offsetTop,
-      });
-    }
+    // if (refMeasurements === null) {
+    //   setRefMeasurements({
+    //     header: bodyRef.current.offsetTop,
+    //     about: aboutRef.current.offsetTop,
+    //     projects: projectsRef.current.offsetTop,
+    //     resume: resumeRef.current.offsetTop,
+    //     contact: contactRef.current.offsetTop,
+    //   });
+    // }
 
     window.addEventListener('scroll', setHighlightState);
     return () => window.removeEventListener('scroll', setHighlightState);
@@ -35,7 +31,7 @@ const App = () => {
 
   function handleHighlightMath(ref) {
     if (
-      ref.current.getBoundingClientRect().bottom + window.innerHeight / 1.5 >
+      ref.getBoundingClientRect().bottom + window.innerHeight / 1.5 >
       window.innerHeight
     ) {
       return true;
@@ -44,41 +40,60 @@ const App = () => {
   }
 
   const setHighlightState = () => {
-    if (handleHighlightMath(aboutRef)) {
-      setHighlight([
-        { about: true, projects: false, resume: false, contact: false },
-      ]);
-    } else if (handleHighlightMath(projectsRef)) {
-      setHighlight([
-        { about: false, projects: true, resume: false, contact: false },
-      ]);
-    } else if (handleHighlightMath(resumeRef)) {
-      setHighlight([
-        { about: false, projects: false, resume: true, contact: false },
-      ]);
-    } else if (handleHighlightMath(contactRef)) {
-      setHighlight([
-        { about: false, projects: false, resume: false, contact: true },
-      ]);
+    const defaultValues = {
+      about: false,
+      projects: false,
+      resume: false,
+      contact: false,
+    };
+
+    const aboutState = handleHighlightMath(scrollRef.current[0]);
+    const projectsState = handleHighlightMath(scrollRef.current[1]);
+    const resumeState = handleHighlightMath(scrollRef.current[2]);
+    const contactState = handleHighlightMath(scrollRef.current[3]);
+
+    if (aboutState) {
+      setHighlight([{ ...defaultValues, about: true }]);
+    } else if (projectsState) {
+      setHighlight([{ ...defaultValues, projects: true }]);
+    } else if (resumeState) {
+      setHighlight([{ ...defaultValues, resume: true }]);
+    } else if (contactState) {
+      setHighlight([{ ...defaultValues, contact: true }]);
+    } else {
+      setHighlight([{ ...defaultValues }]);
     }
   };
 
   return (
     <div className="max-w-screen-md mx-auto flex flex-col justify-center items-center ">
       <div className="w-full mx-auto bg-orange-200 min-h-screen relative">
-        <Header highlight={highlight} refMeasurements={refMeasurements} />
-        <div ref={bodyRef} className={`px-5  flex flex-col items-center `}>
+        <Header
+          highlight={highlight}
+          refMeasurements={refMeasurements}
+          ref={scrollRef}
+        />
+        <div className={`px-5  flex flex-col items-center `}>
           <div className=" sm:max-w-sm flex flex-col items-center">
-            <div className="h-[800px]" ref={aboutRef}>
+            <div
+              className="h-[800px]"
+              ref={(el) => (scrollRef.current[0] = el)}
+            >
               <About />
             </div>
-            <div className="h-[2400px]" ref={projectsRef}>
+            <div
+              className="h-[2400px]"
+              ref={(el) => (scrollRef.current[1] = el)}
+            >
               <Projects />
             </div>
-            <div className="h-[1000px]" ref={resumeRef}>
+            <div
+              className="h-[1000px]"
+              ref={(el) => (scrollRef.current[2] = el)}
+            >
               <Resume />
             </div>
-            <div className="h-[1000px]" ref={contactRef}>
+            <div ref={(el) => (scrollRef.current[3] = el)}>
               <Contact />
             </div>
           </div>
