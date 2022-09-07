@@ -6,6 +6,7 @@ const About = () => {
       <div className=" text-center sticky top-20 sm:top-24 bg-orange-200 z-40 text-2xl py-5 w-full">
         About Me
       </div>
+      <div className="h-[150px]"></div>
       {homeText.map((text, index) => {
         return (
           <div
