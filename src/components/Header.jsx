@@ -9,14 +9,11 @@ const Header = ({ highlight, refMeasurements }) => {
     if (refMeasurements) {
       setMeasurements(refMeasurements);
     }
-    // if (scrolledY) {
-    //   window.scrollTo(0, scrolledY - measurements.header);
-    // }
   }, [refMeasurements]);
 
   function handleScroll(ref) {
     window.scroll({
-      top: ref - measurements.header,
+      top: ref,
       left: 0,
       behavior: 'smooth',
     });

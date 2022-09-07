@@ -69,16 +69,16 @@ const App = () => {
         <Header highlight={highlight} refMeasurements={refMeasurements} />
         <div ref={bodyRef} className={`px-5  flex flex-col items-center `}>
           <div className=" sm:max-w-sm flex flex-col items-center">
-            <div ref={aboutRef}>
+            <div className="h-[800px]" ref={aboutRef}>
               <About />
             </div>
-            <div ref={projectsRef}>
+            <div className="h-[2400px]" ref={projectsRef}>
               <Projects />
             </div>
-            <div ref={resumeRef}>
+            <div className="h-[1000px]" ref={resumeRef}>
               <Resume />
             </div>
-            <div ref={contactRef}>
+            <div className="h-[1000px]" ref={contactRef}>
               <Contact />
             </div>
           </div>

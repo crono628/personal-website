@@ -31,7 +31,6 @@ const Resume = () => {
           />
         </div>
       </div>
-      <div className="h-[50px]"></div>
     </div>
   );
 };
