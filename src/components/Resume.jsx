@@ -11,23 +11,27 @@ const Resume = () => {
     link.click();
   }
   return (
-    <div id="resume" className="h-screen">
-      <div className="text-center sm:pr-28 sticky top-20 sm:top-24 bg-orange-300 z-40 text-2xl py-5 w-full">
+    <div id="resume" className="">
+      <div className="text-center sticky top-20 sm:top-24 bg-orange-200 z-40 text-2xl py-5 w-full">
         Resume
       </div>
-      <div className="flex  flex-col items-center gap-12 justify-center sm:pr-28">
+      <div className="h-[150px]"></div>
+      <div className="flex flex-col items-center gap-12 justify-center ">
         <button
           onClick={handleDownload}
-          className=" w-40 text-white bg-orange-500 hover:bg-orange-700 border-0 py-2 px-6 focus:outline-none  rounded text-lg"
+          className=" w-40 text-white bg-orange-500 hover:bg-orange-700 border-0 py-5 px-6 focus:outline-none  rounded text-lg"
         >
           Download
         </button>
-        <img
-          src={MichaelDeSantisResume}
-          alt="Michael DeSantis Resume"
-          className="w-3/4 pb-10 h-full"
-        />
+        <div className="flex justify-center items-start max-w-md min-w-[10px] h-[700px] ">
+          <img
+            src={MichaelDeSantisResume}
+            alt="Michael DeSantis Resume"
+            className=" object-contain"
+          />
+        </div>
       </div>
+      <div className="h-[50px]"></div>
     </div>
   );
 };

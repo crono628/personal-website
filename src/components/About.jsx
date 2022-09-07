@@ -2,10 +2,11 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div id="about" className="h-screen">
-      <div className=" text-center sm:pr-28 sticky top-20 sm:top-24 bg-orange-300 z-40 text-2xl py-5 w-full">
+    <div>
+      <div className=" text-center sticky top-20 sm:top-24 bg-orange-200 z-40 text-2xl py-5 w-full">
         About Me
       </div>
+      <div className="h-[20px]"></div>
 
       {homeText.map((text, index) => {
         return (
@@ -17,6 +18,7 @@ const About = () => {
           </div>
         );
       })}
+      <div className="h-[150px]"></div>
     </div>
   );
 };

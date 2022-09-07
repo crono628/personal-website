@@ -3,10 +3,12 @@ import { projectCollection } from '../data/projectCollection';
 
 const Projects = () => {
   return (
-    <div id="projects" className=" mb-36">
-      <div className="text-center sm:pr-28 sticky top-20 sm:top-24 bg-orange-300 z-40 text-2xl py-5 w-full">
+    <div>
+      <div className="text-center sticky top-20 sm:top-24 bg-orange-200 z-40 text-2xl py-5 w-full">
         Projects
       </div>
+      <div className="h-[150px]"></div>
+
       {projectCollection.map((project, index) => {
         return (
           <div
@@ -14,8 +16,8 @@ const Projects = () => {
             className="py-5 flex flex-col items-start justify-start "
           >
             <div className="text-xl">{project.name}</div>
-            <div className="text-sm py-3">{project.description}</div>
-            <div className="flex gap-10 pb-3">
+            <div className="text-sm py-4">{project.description}</div>
+            <div className="flex gap-10 pb-4">
               <a
                 href={`${project.repo}`}
                 target="_blank"
@@ -36,6 +38,7 @@ const Projects = () => {
           </div>
         );
       })}
+      <div className="h-[150px]"></div>
     </div>
   );
 };

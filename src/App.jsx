@@ -64,11 +64,11 @@ const App = () => {
   };
 
   return (
-    <div className="max-w-screen-lg mx-auto flex flex-col justify-center items-center ">
-      <div className="max-w-screen-lg mx-auto bg-orange-300 min-h-screen relative mb-60">
+    <div className="max-w-screen-md mx-auto flex flex-col justify-center items-center ">
+      <div className="w-full mx-auto bg-orange-200 min-h-screen relative">
         <Header highlight={highlight} refMeasurements={refMeasurements} />
-        <div ref={bodyRef} className={`px-5 sm:ml-28 `}>
-          <div className=" md:max-w-screen-md md:mx-auto">
+        <div ref={bodyRef} className={`px-5  flex flex-col items-center `}>
+          <div className=" sm:max-w-sm flex flex-col items-center">
             <div ref={aboutRef}>
               <About />
             </div>
