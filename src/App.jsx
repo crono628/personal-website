@@ -12,22 +12,11 @@ const App = () => {
   const [highlight, setHighlight] = useState([
     { about: true, projects: false, resume: false, contact: false },
   ]);
-  const [refMeasurements, setRefMeasurements] = useState(null);
 
   useEffect(() => {
-    // if (refMeasurements === null) {
-    //   setRefMeasurements({
-    //     header: bodyRef.current.offsetTop,
-    //     about: aboutRef.current.offsetTop,
-    //     projects: projectsRef.current.offsetTop,
-    //     resume: resumeRef.current.offsetTop,
-    //     contact: contactRef.current.offsetTop,
-    //   });
-    // }
-
     window.addEventListener('scroll', setHighlightState);
     return () => window.removeEventListener('scroll', setHighlightState);
-  }, [refMeasurements]);
+  }, []);
 
   function handleHighlightMath(ref) {
     if (
@@ -67,12 +56,8 @@ const App = () => {
 
   return (
     <div className="max-w-screen-md mx-auto flex flex-col justify-center items-center ">
-      <div className="w-full mx-auto bg-orange-200 min-h-screen relative">
-        <Header
-          highlight={highlight}
-          refMeasurements={refMeasurements}
-          ref={scrollRef}
-        />
+      <div className="w-full mx-auto bg-orange-300 min-h-screen relative">
+        <Header highlight={highlight} ref={scrollRef} />
         <div className={`px-5  flex flex-col items-center `}>
           <div className=" sm:max-w-sm flex flex-col items-center">
             <div
