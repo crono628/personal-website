@@ -30,9 +30,10 @@ const Header = ({ highlight, refMeasurements }) => {
         <div className="">Web Developer</div>
         <div>--</div>
       </div>
+      <div className={`h-[${measurements?.header}px]`}></div>
       <div className="flex flex-col bg-orange-200 sm:bg-transparent px-5 pt-5 sm:absolute">
         <button
-          onClick={() => handleScroll(measurements.about)}
+          onClick={() => handleScroll(measurements?.about)}
           className={`${
             about ? 'animate-highlightIn' : ''
           } my-0 text-xs px-1 rounded sm:mb-3  sm:text-sm`}
@@ -40,7 +41,7 @@ const Header = ({ highlight, refMeasurements }) => {
           About Me
         </button>
         <button
-          onClick={() => handleScroll(measurements.projects)}
+          onClick={() => handleScroll(measurements?.projects)}
           className={`${
             projects ? 'animate-highlightIn' : ''
           } my-0 text-xs px-1 rounded sm:my-3  sm:text-sm`}
@@ -48,7 +49,7 @@ const Header = ({ highlight, refMeasurements }) => {
           Projects
         </button>
         <button
-          onClick={() => handleScroll(measurements.resume)}
+          onClick={() => handleScroll(measurements?.resume)}
           className={`${
             resume ? 'animate-highlightIn' : ''
           } my-0 text-xs px-1 rounded sm:my-3  sm:text-sm`}
@@ -56,7 +57,7 @@ const Header = ({ highlight, refMeasurements }) => {
           Resume
         </button>
         <button
-          onClick={() => handleScroll(measurements.contact)}
+          onClick={() => handleScroll(measurements?.contact)}
           className={`${
             contact ? 'animate-highlightIn' : ''
           } my-0 text-xs px-1 rounded sm:my-3  sm:text-sm`}
