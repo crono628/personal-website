@@ -1,31 +1,31 @@
-import React, { useEffect, useRef, useState } from 'react';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Projects from './components/Projects';
-import Resume from './components/Resume';
-import ScrollButton from './components/ScrollButton';
+import React, { useEffect, useRef, useState } from 'react'
+import About from './components/About'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Projects from './components/Projects'
+import Resume from './components/Resume'
+import ScrollButton from './components/ScrollButton'
 
 const App = () => {
-  const scrollRef = useRef([]);
+  const scrollRef = useRef([])
   const [highlight, setHighlight] = useState([
-    { about: true, projects: false, resume: false, contact: false },
-  ]);
+    { about: true, projects: false, resume: false, contact: false }
+  ])
 
   useEffect(() => {
-    window.addEventListener('scroll', setHighlightState);
-    return () => window.removeEventListener('scroll', setHighlightState);
-  }, []);
+    window.addEventListener('scroll', setHighlightState)
+    return () => window.removeEventListener('scroll', setHighlightState)
+  }, [])
 
   function handleHighlightMath(ref) {
     if (
       ref.getBoundingClientRect().bottom + window.innerHeight / 1.5 >
       window.innerHeight
     ) {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
 
   const setHighlightState = () => {
@@ -33,26 +33,26 @@ const App = () => {
       about: false,
       projects: false,
       resume: false,
-      contact: false,
-    };
+      contact: false
+    }
 
-    const aboutState = handleHighlightMath(scrollRef.current[0]);
-    const projectsState = handleHighlightMath(scrollRef.current[1]);
-    const resumeState = handleHighlightMath(scrollRef.current[2]);
-    const contactState = handleHighlightMath(scrollRef.current[3]);
+    const aboutState = handleHighlightMath(scrollRef.current[0])
+    const projectsState = handleHighlightMath(scrollRef.current[1])
+    const resumeState = handleHighlightMath(scrollRef.current[2])
+    const contactState = handleHighlightMath(scrollRef.current[3])
 
     if (aboutState) {
-      setHighlight([{ ...defaultValues, about: true }]);
+      setHighlight([{ ...defaultValues, about: true }])
     } else if (projectsState) {
-      setHighlight([{ ...defaultValues, projects: true }]);
+      setHighlight([{ ...defaultValues, projects: true }])
     } else if (resumeState) {
-      setHighlight([{ ...defaultValues, resume: true }]);
+      setHighlight([{ ...defaultValues, resume: true }])
     } else if (contactState) {
-      setHighlight([{ ...defaultValues, contact: true }]);
+      setHighlight([{ ...defaultValues, contact: true }])
     } else {
-      setHighlight([{ ...defaultValues }]);
+      setHighlight([{ ...defaultValues }])
     }
-  };
+  }
 
   return (
     <div className="max-w-screen-md mx-auto flex flex-col justify-center items-center ">
@@ -87,7 +87,7 @@ const App = () => {
       </div>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
