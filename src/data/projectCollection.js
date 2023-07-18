@@ -34,13 +34,13 @@ export const projectCollection = [
     repo: 'https://github.com/crono628/kefir_madness',
     live: 'https://kefirmadness.web.app/',
   },
-  {
-    name: "Jenna's List",
-    description:
-      'My wife wanted a better to-do list so I surprised her with a custom version. User authorization and the backend database took the lead on this Firebase served app. React Router is utilized for signing up and logging in.',
-    repo: 'https://github.com/crono628/react-to-do-list',
-    live: 'https://www.jennaslist.app/#/login',
-  },
+  // {
+  //   name: "Jenna's List",
+  //   description:
+  //     'My wife wanted a better to-do list so I surprised her with a custom version. User authorization and the backend database took the lead on this Firebase served app. React Router is utilized for signing up and logging in.',
+  //   repo: 'https://github.com/crono628/react-to-do-list',
+  //   live: 'https://www.jennaslist.app/#/login',
+  // },
   {
     name: 'Shopping Cart',
     description:
